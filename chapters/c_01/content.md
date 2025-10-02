@@ -1,5 +1,11 @@
 # Exam preparation
 
+## Watching now
+
+AWS Technical Essentials Part 1
+
+## Recommended steps
+
 Step 1: Take AWS Certification Official Practice Question. 3h.
 
 Step 2: Digital courses and practice on AWS Builder labs, AWS Cloud Quest, AWS Jam. 2 weeks.
