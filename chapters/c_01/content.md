@@ -65,3 +65,5 @@ Experiential and game-based learning
 <https://aws.amazon.com/blogs/containers/streamline-service-to-service-communication-during-deployments-with-amazon-ecs-service-connect/>
 
 <https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/>
+
+<https://aws.amazon.com/products/compute/>
