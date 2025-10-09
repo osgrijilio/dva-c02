@@ -67,3 +67,11 @@ Experiential and game-based learning
 <https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/>
 
 <https://aws.amazon.com/products/compute/>
+
+<https://aws.amazon.com/containers/services/>
+
+<https://aws.amazon.com/ecs/>
+
+<https://aws.amazon.com/eks/>
+
+<https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html>
