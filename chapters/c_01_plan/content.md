@@ -63,3 +63,10 @@ Experiential and game-based learning
 <https://aws.amazon.com/sqs/faqs/?da=sec&sec=prep#topic-0>
 <https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html>
 <https://docs.aws.amazon.com/lambda/latest/dg/lambda-functions.html>
+<https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html>
+<https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing>
+<https://cidr.xyz/>
+<https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html>
+<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html>
+<https://docs.aws.amazon.com/vpn/latest/s2svpn/how_it_works.html>
+<https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html>
