@@ -107,3 +107,11 @@ Experiential and game-based learning
 <https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html>
 
 <https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html>
+
+<https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html>
+
+<https://docs.aws.amazon.com/vpc/latest/userguide/route-table-options.html>
+
+<https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html>
+
+<https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html>
