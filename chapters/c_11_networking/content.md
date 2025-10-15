@@ -15,7 +15,7 @@ Remember:
 - __Default Network ACL__ for a subnet:
   - __ALLOWS__ all inbound traffic and
   - __ALLOWS__ all outbound traffic.
-  - Stateful. Can state ALLOW or DENY rules.
+  - Stateless. Can state ALLOW or DENY rules. Must configure both inbound (eg 443) and outbound (1024-65535)
 
 - __Default Security Group__ for an EC2 instance:
   - __BLOCKS__ all inbound traffic
@@ -199,6 +199,7 @@ Use Network ACLs and Security Groups.
 Think of a network access control list (network ACL) as a virtual firewall at the subnet level. A network ACL lets you control what kind of traffic is allowed to enter or leave your subnet. You can configure this by setting up rules that define what you want to filter. Here is an example of a default ACL for a VPC that supports IPv4.
 
 Network ACLs are stateless. You need to add inbound and outbound rules for the same protocol.
+For example, if you allow HTTPS traffic inbound on port 443, you must also allow the corresponding outbound ephemeral ports (typically 1024-65535) for the response traffic.
 
 ![Network Access Control Lists](resources/NACLs.png)
 
@@ -235,3 +236,50 @@ This example defines three tiers and isolates each tier with defined security gr
 1:1 relationship between VPC and Internet Gateway.
 
 The Security Group resides exclusively on a VPC.
+
+### Demo
+
+1. Create VPC
+1. Create Subnets
+1. Create Internet Gateway
+   1. Attach IGW to VPC
+1. Create public routing table
+   1. Add route for IGW
+1. Optionally, create Network ACLs
+   1. Edit rules for inbound/outbound allowed/denied traffic.
+      For exposed hosts:
+      1. inbound can be very specific
+      1. outbound are open due ephemeral ports. So this would be a "custom TCP", 1024-65535 allow.
+   1. Associate to subnet
+1. Create Security Group. Will be used during instance definition.
+
+### Types of Targets for route rules
+
+- Carrier Gateway
+- Core Network
+- Egress Only Internet Gateway
+- Gateway Load Balancer Endpoint
+- Instance
+- Internet Gateway
+- local
+- NAT Gateway
+- Network Interface
+- Outpost Local Gateway
+- Peering Connection
+- Transit Gateway
+- Virtual Private Gateway
+
+### Naming convention
+
+XXXXXX TYP DDD And generate a tags.
+
+  XXXXXXX application name. might be less digits but no more than 6.
+
+  D stands for decimal digits  (0-9). Skip typing 0.
+
+  demo1 acl 1
+  demo1 acl 2
+  demo1 sg 1
+  demo1 key 1
+
+  tag app-name: demo01
