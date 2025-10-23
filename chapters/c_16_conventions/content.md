@@ -2,36 +2,55 @@
 
 My conventions.
 
-## Human Naming conventions
+## Naming conventions
 
-Provide a human readable name and tags.
+Name things and tag'em.
 
-Format for humans: "XXXXXX TYP DDD"
+Use this name format: __*X(7)-TYPE-DDD[-Y(10)]*__
 
-  XXXXXXX application name. might be less digits but no more than 7.
+where:
 
-  D stands for decimal digits  (0-9). Skip typing 0.
+- __*XXXXXXX*__ application name. might be less digits but no more than 7.
 
-  demo1 acl 1
-  demo1 acl 2
-  demo1 sg 1
-  demo1 key 1
-  demo2 acl 11
+- __*TYPE*__ is a type, like acl, sg. No more than 5 letters.
 
-Tags
+- __*DDD*__ stands for decimal digits (0-9). Do not write down initial 0s, i.e. 2 is ok, but 02 or 002 are wrong.
 
-- app-name: demo01
+- __*-YYYYYYYYYY*__ is an optional function name, as you would use it in the tag.
 
-- budget-id: xxxxxxx
+Examples:
+
+    demo1-acl-1
+    demo1-acl-2
+    demo1-sg-1
+    demo1-key-1
+    demo2-acl-11
+    demo1-s3-2
+    demo1-s3-3-photos
+    demo1-s3-3-resumes
+
+At all times we use DNS compatible names. No spaces, no underscores.
+
+## Tags
+
+Recommendeg tags:
+
+- app-name: x(7). For example, demo01.
+
+- app-function: X(10). A concept inside your application
+
+- budget-id: X(10). An identifier for budgeting.
 
 - env-type:
   - dev
-  - sit (System Integration Testing). An environment where code from different developers is integrated and tested together. This allows teams to check the interactions between modules)
-  - crp (Conference Room Pilot)
-  - uat (UAT is the final testing step in the "deploy" phase where real users validate the system against business requirements before going live).
+  - sit
+  - crp
+  - uat
   - prd
 
 ## Test processes and Environment types
+
+Some clients might do with less than 5 enviroments, so we will adjust to their practice.
 
 |Feature | System Integration Testing (SIT) | Conference Room Pilot (CRP) | User Acceptance Testing (UAT)
 |-|-|-|-
