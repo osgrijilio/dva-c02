@@ -116,9 +116,9 @@ Recommendeg tags:
 
 - app-function: X(10). A concept inside your application
 
-- budget-id: X(10). An identifier for budgeting.
+- budget-id: X(10). An identifier for budgeting. Cost Center.
 
-- env-type:
+- environment:
   - dev
   - sit
   - crp
