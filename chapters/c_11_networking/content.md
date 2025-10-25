@@ -227,7 +227,7 @@ Security group is stateful. No need to add outbound rule.
 
 Use Security Groups for fine grained access control:
 
-![Security Groups FGA](resources/security_group_1.jpg)
+![Security Groups FGA](resources/security_group_1.jpg){ width=75% }
 
 This example defines three tiers and isolates each tier with defined security group rules. In this case, internet traffic to the web tier is allowed over HTTPS. Web tier to application tier traffic is allowed over HTTP, and application tier to database tier traffic is allowed over MySQL. This is different from traditional on-premises environments, in which you isolate groups of resources with a VLAN configuration. In AWS, security groups allow you to achieve the same isolation without tying the security groups to your network.
 

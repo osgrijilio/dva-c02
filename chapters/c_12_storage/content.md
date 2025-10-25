@@ -88,7 +88,7 @@ Use a range of cloud storage solutions to readily move to managed file storage w
 
 ### Amazon Elastic File System (Amazon EFS)
 
-![EFS](resources/EFS_icon.jpg)
+![EFS](resources/EFS_icon.jpg){ style="display:block;margin:0 auto;" }
 
 Amazon Elastic File System (Amazon EFS) is a set-and-forget file system that automatically grows and shrinks as you add and remove files. There is no need for provisioning or managing storage capacity and performance. Amazon EFS can be used with AWS compute services and on-premises resources. You can connect tens, hundreds, and even thousands of compute instances to an Amazon EFS file system at the same time, and Amazon EFS can provide consistent performance to each compute instance.
 
@@ -108,7 +108,7 @@ Amazon FSx for NetApp ONTAP is a fully managed service. It combines the familiar
 
 FSx for ONTAP provides rich data management features and flexible shared file storage that are broadly accessible from Linux, Windows, and macOS compute instances running in AWS or on premises.
 
-![fsx_ontap](resources/FSx-for-NetApp-ONTAP.jpg)
+![fsx_ontap](resources/FSx-for-NetApp-ONTAP.jpg){ width=25% style="display:block;margin:0 auto;" }
 
 ### Amazon FSx for OpenZFS
 
@@ -116,7 +116,7 @@ Amazon FSx for OpenZFS is a fully managed file storage service that helps you to
 
 FSx for OpenZFS delivers leading performance for latency-sensitive and small-file workloads with popular NAS data management capabilities (snapshots, and cloning), at a lower price than commercially licensed alternatives.
 
-![fsx_zfs](resources/FSx-for-OpenZFS.jpg)
+![fsx_zfs](resources/FSx-for-OpenZFS.jpg){ width=25% style="display:block;margin:0 auto;" }
 
 ### Amazon FSx for Windows File Server
 
@@ -124,7 +124,7 @@ Amazon FSx for Windows File Server provides fully managed, highly reliable and s
 
 As a fully managed service, FSx for Windows File Server removes the administrative tasks of setting up and provisioning file servers and storage volumes and provides ease of use for customers building and running Windows applications.
 
-![fsx_wfs](resources/FSx-for-WFS.jpg)
+![fsx_wfs](resources/FSx-for-WFS.jpg){ width=25% style="display:block;margin:0 auto;" }
 
 ### Amazon FSx for Lustre
 
