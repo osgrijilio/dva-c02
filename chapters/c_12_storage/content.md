@@ -313,6 +313,8 @@ Amazon S3 reinforces encryption in transit (as it travels to and from Amazon S3)
 
 ### Amazon S3 storage classes
 
+![Storage classes](resources/s3_storage_classes.png)
+
 | Storage Class | Description
 |-|-
 | S3 Standard | This is considered general-purpose storage for cloud applications, dynamic websites, content distribution, mobile and gaming applications, and big data analytics.
