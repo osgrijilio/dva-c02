@@ -46,3 +46,74 @@ A Dedicated Host is a physical Amazon EC2 server that is dedicated for your use.
 
 - Dedicated Hosts can be purchased on demand (hourly).
 - Dedicated Hosts can be purchased as a Reservation for up to 70 percent off the On-Demand price.
+
+## Instance classes
+
+The __instance type__ is encoded as:
+
+```bnf
+<instance_type> ::= <instance_family>.<instance_size>
+
+instance_family ::= <series><generation><options>
+```
+
+### Series
+
+- __General purpose__:
+  - __M__ - General purpose
+  - __Mac__ - macOS
+  - __T__ - Burstable performance
+
+- __Compute optimized__:
+  - __C__ - Compute optimized
+
+- __Memory optimized__:
+  - __R__ - Memory optimized
+  - __X__ - Memory intensive
+  - __z__ - High memory
+  - __U__ - High memory
+  - __U-__ - High memory
+
+- __Storage optimized__:
+  - __D__ - Dense storage
+  - __H__ - not documented
+  - __I__ - Storage optimized
+  - __Im__ - Storage optimized (1 to 4 ratio of vCPU to memory)
+  - __Is__ - Storage optimized (1 to 6 ratio of vCPU to memory)
+
+- __Accelerated computing__:
+  - __DL__ - not documented
+  - __F__ - FPGA
+  - __G__ - Graphics intensive
+  - __Gr__ - not documented
+  - __Inf__ - AWS Inferentia
+  - __P__ - GPU accelerated
+  - __Trn__ - AWS Trainium
+  - __VT__ - Video transcoding
+
+- __High-performace computing__:
+  - __Hpc__
+
+### Options
+
+- __a__ - AMD Processors
+- __b200__ - Accelerated by NVIDIA Blackwell GPUs
+- __b__ - Block storage optimization
+- __d__ - Instance store volumes
+- __e-GB200__ - not documented
+- __e__ - Extra storage or extra memory or extra GPU for accelerated computing instance types
+- __f__ - not documented
+- __flex__ - Flex instance
+- __g__ - AWS Graviton processors
+- __i__ - Intel processors
+- __inh-32tb__ - not documented
+- __m1ultra__ - Apple M1 Ultra chip
+- __m2__ - Apple M2 chip
+- __m2pro__ - Apple M2 Pro chip
+- __m4pro__ - Apple M4 Pro chip
+- __n__ - Network and EBS optimized
+- __q__ - Qualcomm inference accelerators
+- __tb1__ - not documented
+- __u__ - not documented
+- __z__ - High CPU frequency
+- __`<nn>`tb__ - Amount of memory for high-memory instances (3 TiB to 32 TiB)
