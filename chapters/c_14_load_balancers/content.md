@@ -60,8 +60,6 @@ The ELB service is made up of three main components: rules, listeners, and targe
 
 We will cover three types of load balancers: Application Load Balancer (ALB), Network Load Balancer (NLB), and Gateway Load Balancer (GLB).
 
-To learn more about each type of load balancer, flip each of the following flashcards by choosing them.
-
 - __Application Load Balancer__
 
   - User authorization
@@ -160,3 +158,5 @@ You can select between the ELB service types by determining which feature is req
 |Preserve Source IP Address |Yes |Yes |Yes
 |Fixed Response |Yes| No | No
 |User Authentication|Yes| No | No
+
+Think about user session in applications (higher in the OSI model): that's why you have authentication, https/http, predefined responses. In the lower layers of OSI, you are massively load-balancing for routing/inspection: you don't have sessions, you have pools of appliances to scan the traffic.
