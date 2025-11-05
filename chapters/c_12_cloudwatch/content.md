@@ -21,17 +21,17 @@ You can use CloudWatch to do the following:
 
 - __Collect__
 
-    Collect metrics and logs from your resources, applications, and services that run on AWS or on-premises servers. 
+    Collect metrics and logs from your resources, applications, and services that run on AWS or on-premises servers.
 
 - __Monitor__
 
-    Visualize applications and infrastructure with dashboards. Troubleshoot with correlated logs and metrics, and set alerts. 
+    Visualize applications and infrastructure with dashboards. Troubleshoot with correlated logs and metrics, and set alerts.
 
 - __Act__
 
-    Automate responses to operational changes with CloudWatch events and auto scaling. 
+    Automate responses to operational changes with CloudWatch events and auto scaling.
 
-- __Analyze__ 
+- __Analyze__
 
     Up to 1-second metrics, extended data retention (15 months), and real-time analysis with CloudWatch metric math.
 
@@ -108,7 +108,7 @@ Some services, like Lambda, are set up to send log data to CloudWatch Logs with 
 
 1. Log group
 
-    A log group is composed of log streams that all share the same retention and permissions settings. 
+    A log group is composed of log streams that all share the same retention and permissions settings.
 
     For example, suppose you have multiple EC2 instances hosting your application and you send application log data to CloudWatch Logs. You can group the log streams from each instance into one log group.
 
