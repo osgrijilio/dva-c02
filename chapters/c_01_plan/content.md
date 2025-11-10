@@ -32,6 +32,26 @@ Experiential and game-based learning
 
 - Introduction to AWS Identity and Access Management (IAM) (45 minutes)
 
+## Domains
+
+1. Development with AWS Services
+  1.1. Develop code for applications hosted on AWS.
+  1.2. Develop code for AWS Lambda.
+  1.3. Use data stores in application development.
+2. Security
+  2.1. Implement authentication and/or authorization for applications and AWS services.
+  2.1. Implement encryption using AWS services.
+  2.1. Manage sensitive data in application code.
+3. Deployment
+  3.1. Prepare application artifacts to be deployed to AWS.
+  3.1. tbd
+  3.1. Automate deployment testing.
+  3.1. Deploy code using AWS CI/CD services.
+4. Troubleshooting and Optimization
+  4.1. Assist in a root cause analysis.
+  4.2. Instrument code for observability.
+  4.3. Optimize applications using AWS services and features.
+
 ## References
 
 <https://alienattack.workshop.aws/>
