@@ -234,9 +234,85 @@ Correct answer
 
 ## 10
 
+A company has an inventory system that receives sporadic inventory updates from a fulfillment system in the form of large JSON files. While many files can be sent in a short time period, days can pass when no files are sent. The company wants to process these files as soon as they arrive.
+
+Which solution will meet these requirements?
+
+- A: Send the JSON files to Amazon Elastic File System (Amazon EFS). Configure an AWS Lambda function with an Amazon EFS event source to process the files.
+
+- B: Send the JSON files to Amazon Elastic File System (Amazon EFS). Schedule an AWS Lambda function to process the files once each hour.
+
+- C: Send the JSON files to an Amazon S3 bucket. Configure an AWS Lambda function with an S3 event source to process the S3 objects.
+
+- D: Send the JSON files to an Amazon S3 bucket. Schedule an AWS Lambda function to process the S3 objects once each hour.
+
+Notes.  Amazon EFS file system changes cannot invoke Lambda functions. Lambda functions can be scheduled.
+
+Correct answer
+
+- C: Send the JSON files to an Amazon S3 bucket. Configure an AWS Lambda function with an S3 event source to process the S3 objects.
+
+    Lambda functions can be invoked from S3 events and can read from S3 buckets. An event-based invocation would allow for the S3 objects to be processed as soon as they arrive.
+
+    For more information about invoking a Lambda function from S3, see Tutorial: Using an Amazon S3 trigger to invoke a Lambda function.
+
 ## 11
 
+A developer needs to query a relational database from an AWS Lambda function. The Lambda function will be called frequently. The developer needs to avoid the latency introduced by the initial JDBC connection to the database in subsequent invocations of the Lambda function.
+
+How can the developer ensure the database connection is reused by Lambda?
+
+- A: Initialize the database connection outside the Lambda function code as a Lambda function environment variable.
+
+- B: Initialize the database connection within the Lambda function code but outside the handler method.
+
+- C: Store the database connection string in AWS Systems Manager Parameter Store. Ensure the Lambda function handler initializes the database connection within the handler method.
+
+- D: Store the database connection string in the Lambda function code. Ensure the function handler initializes the database connection within the handler method.
+
+Correct answer
+
+- B: Initialize the database connection within the Lambda function code but outside the handler method.
+
+    The Lambda environment can reuse the same database connection for subsequent invocations when defining the database connection details in the code but outside the handler method.
+
+    For more information about reusing the Lambda execution environment, see AWS Lambda execution environment.
+
 ## 12
+
+An ecommerce company deploys more than 20 services behind Amazon API Gateway. The interaction between services is complex. Each service can potentially call several others, making performance issues and errors difficult to identify. Some individual API calls have experienced slow response times. The development team needs to quickly identify the underlying causes of the slowdowns.
+
+Which approach would MOST quickly identify the underlying cause of performance issues?
+
+- A: Use Amazon CloudWatch metrics to find the service invocations with slow response times. Configure and use AWS X-Ray to examine these services to discover their performance issues.
+
+- B: Use AWS CloudWatch Logs to find the service invocations with slow response times. Use AWS CloudTrail to examine these services to discover their performance issues.
+
+- C: Configure and use AWS X-Ray to find the service invocations with slow response times. Use Amazon CloudWatch metrics and logs to examine these services to discover their performance issues.
+
+- D: Use AWS CloudTrail to find the service invocations with slow response times. Configure and use AWS X-Ray to examine these services to discover their performance issues.
+
+### Incorrect answers
+
+- A: Use Amazon CloudWatch metrics to find the service invocations with slow response times. Configure and use AWS X-Ray to examine these services to discover their performance issues.
+
+    Incorrect. It is time consuming to examine and compare metric values of various services. The number of CPU or network calls a service makes indicates relative work load. The number of these CPU or network calls does not indicate poor performance. X-Ray is mainly used to study a service's interaction time with other services. It has limited utility to diagnose an individual service's performance. However, X-Ray is excellent at quickly finding poorly performing services within a web of interaction. CloudWatch metrics and logs can be used to study the targeted services.
+
+- B: Use AWS CloudWatch Logs to find the service invocations with slow response times. Use AWS CloudTrail to examine these services to discover their performance issues.
+
+    Incorrect. Not all services send logs to CloudWatch Logs. It is time consuming to examine a large numbers of different log files. Log output is application-specific and may not provide any insight into performance issues. CloudTrail records API calls, not application-level activity.
+
+    For more information about CloudTrail, see What is AWS CloudTrail?
+
+- D: Use AWS CloudTrail to find the service invocations with slow response times. Configure and use AWS X-Ray to examine these services to discover their performance issues.
+
+    Incorrect. CloudTrail records API calls. CloudTrail is not an application log aggregator, such as CloudWatch Logs. Any API calls that individual services make would be not be likely to affect application performance. Also, X-Ray is mainly used to study a service's interaction time with other services. It has limited utility to diagnose an individual service's performance.
+
+Correct answer
+
+- C: Configure and use AWS X-Ray to find the service invocations with slow response times. Use Amazon CloudWatch metrics and logs to examine these services to discover their performance issues.
+
+    Correct. Unlike metrics or logs, X-Ray can help users quickly identify services by their relative response times. X-Ray can identify a poorly performing service from within a web of interacting services. Once identified, CloudWatch provides the context, including the logs and metrics necessary to study specific issues.
 
 ## 13
 
