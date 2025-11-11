@@ -8,7 +8,8 @@ TEMPLATE_FILE = Path("template.yaml")
 CHAPTER_PATTERN = re.compile(r"^c_(\d+)(_(.*))?$", re.IGNORECASE)
 OUTPUT_DIR = Path("output")
 OUTPUT_MD = OUTPUT_DIR / "full_doc.md"
-OUTPUT_PDF = OUTPUT_DIR / "full_doc.pdf"
+FINAL_RESULTS_DIR = Path("$HOME/Downloads")
+OUTPUT_PDF = FINAL_RESULTS_DIR / "my_dva_c02_notes.pdf"
 
 def get_chapter_dirs():
     return sorted(

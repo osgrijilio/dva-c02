@@ -292,7 +292,7 @@ Which approach would MOST quickly identify the underlying cause of performance i
 
 - D: Use AWS CloudTrail to find the service invocations with slow response times. Configure and use AWS X-Ray to examine these services to discover their performance issues.
 
-### Incorrect answers
+Incorrect answers
 
 - A: Use Amazon CloudWatch metrics to find the service invocations with slow response times. Configure and use AWS X-Ray to examine these services to discover their performance issues.
 
@@ -316,16 +316,262 @@ Correct answer
 
 ## 13
 
+A developer builds an application that uses the AWS SDK for Python (Boto3) to query an Amazon DynamoDB table. When the application is tested on an Amazon EC2 instance, the application returns this error message:
+
+"An error occurred (AccessDenied) when calling the operation"
+
+The EC2 instance is associated with an existing IAM role named myRole.
+
+Which set of actions would resolve this error?
+
+- A: Create a new IAM role with the necessary Amazon DynamoDB permissions. Attach this IAM role as an additional role on the EC2 instance.
+
+- B: Create a new IAM policy with the necessary Amazon DynamoDB permissions. Attach this policy to the myRole IAM role.
+
+- C: Run the aws sts assume-role command by using the myRole Amazon Resource Name (ARN). Obtain the access key ID and the secret access key from the output. Run the aws configure command to store these values on the EC2 instance.
+
+- D: Query <http://169.254.169.254/latest/meta-data/iam/security-credentials/myRole> to obtain the access key ID and the secret access key. Run the aws configure command to store these values on the EC2 instance.
+
+Notes.
+
+- An EC2 instance, or any AWS principal, service, or resource, can only assume one role at a time.
+
+- On options __C__ and __D__: "AccessDenied" indicates an authorization error related to permissions, not an authentication problem caused by credentials. The API call is already authenticated. Accessing or modifying the location of AWS credentials will have no effect. The EC2 instance profile has already performed the assume-role call because the role is already associated with the EC2 instance.
+
+Correct answer
+
+- B: Create a new IAM policy with the necessary Amazon DynamoDB permissions. Attach this policy to the myRole IAM role.
+    "AccessDenied" indicates an authorization error related to permissions. Multiple policies can be attached to a single IAM role.
+
 ## 14
+
+A developer writes an AWS Lambda function in Java that calls a third-party API by using an API key. The developer must keep the API key encrypted and secure from casual observation. The API key can change over time.
+
+How can the developer meet these requirements in the MOST operationally efficient manner?
+
+- A: Store the API key directly in the Lambda function’s program code.
+
+- B: Store the API key in a file on an Amazon Elastic Block Store (Amazon EBS) volume. Include code to read the file when the Lambda function starts.
+
+- C: Store the API key in a property file that is deployed with the Java archive. Include code to read the property file when the Lambda function starts.
+
+- D: Store the API key as a secure string in the AWS Systems Manager Parameter Store. Include code to read the parameter when the Lambda function starts.
+
+Notes.
+
+- Amazon EBS volumes can be mounted by Amazon EC2 instances, but not by Lambda functions.
+- On option __C__: Store the API key in a property file that is deployed with the Java archive. Include code to read the property file when the Lambda function starts.
+Incorrect. While this solution provides a minor improvement over hard-coding parameters, co-packaging parameter values in a deployment artifact is not a Lambda function best practice. Lambda function artifacts are not stored with encryption at rest. While the Java artifact, including the property file, is compiled and not visible in the Lambda console, the source code is not compiled and still carries the values without encryption. Any changes to parameter values would require property file modification, rebuilding, and re-deployment, which is not operationally efficient.
+
+Correct answer
+
+- D: Store the API key as a secure string in the AWS Systems Manager Parameter Store. Include code to read the parameter when the Lambda function starts.
+
+    Correct. Parameter Store allows for easy externalization of parameters, such as an API key. The secure string option provides for data security by keeping the value encrypted at rest. Authorized access to the parameter is governed by IAM permissions. Parameter values can be easily changed by authorized principals at any time without requiring a re-deployment of the function, although the function would require intelligence to re-read the parameter values.
 
 ## 15
 
+A company hosts its web application backend on Amazon Elastic Container Service (Amazon ECS). The application's Amazon ECS tasks run behind an Application Load Balancer (ALB). The application supports three environments: production, testing, and development. The application uses the ALB to route traffic to the correct environment.
+
+The company has configured three listener rules for the ALB to forward traffic to a different target group based on the port number (Port 80 for production target group, Port 8080 for testing target group, and Port 8081 for development target group).
+
+The company decides to migrate the application backend to a serverless architecture by using an Amazon API Gateway API backed by AWS Lambda functions. The company plans to use the URI path pattern to access the desired environment instead of the port number. The company has created the Lambda functions for the application backend. Each Lambda function has three aliases (production, testing, and development).
+
+Which option includes the next steps the company must take to complete the process?
+
+- A: Create an API Gateway API and configure the routes to use Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the expression ${stageVariables.LambdaAlias}. Modify the Lambda resource-based policy by adding the permission lambda:InvokeFunction. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+
+- B: Create an API Gateway API and configure the routes to use Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the name of the Lambda alias. Modify the Lambda resource-based policy by adding the permission lambda:InvokeFunction. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+
+- C: Create an API Gateway API and configure the routes to use Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the expression ${stageVariables.LambdaAlias}. Modify the Lambda execution role by adding the permission apigateway:*. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+
+- D: Create an API Gateway API and configure the routes with Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the name of the Lambda alias. Modify the Lambda execution role by adding the permission apigateway:*. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+
+Correct answer
+
+- A: Create an API Gateway API and configure the routes to use Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the expression ${stageVariables.LambdaAlias}. Modify the Lambda resource-based policy by adding the permission lambda:InvokeFunction. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+    Correct. To add "stageVariable" to the Lambda ARN, you should use the following format: ${stageVariable.stageVariableName}.
+
+    For more information about API Gateway stage variables, see Using Amazon API Gateway Stage Variables.
+
+Incorrect answers
+
+- B: Create an API Gateway API and configure the routes to use Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the name of the Lambda alias. Modify the Lambda resource-based policy by adding the permission lambda:InvokeFunction. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+    Incorrect. To add "stageVariable" to the Lambda ARN, you do not use the Lambda alias name. You should use the following format: ${stageVariable.stageVariableName}.
+
+- C: Create an API Gateway API and configure the routes to use Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the expression ${stageVariables.LambdaAlias}. Modify the Lambda execution role by adding the permission apigateway:*. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+    Incorrect. You use the Lambda execution role to grant Lambda permission to AWS resources. The resource-based policy allows other services to invoke the Lambda function.
+
+- D: Create an API Gateway API and configure the routes with Lambda proxy integration. Target the corresponding Lambda function Amazon Resource Name (ARN) that is concatenated with the name of the Lambda alias. Modify the Lambda execution role by adding the permission apigateway:*. Create production, testing, and development stages. Add the LambdaAlias stage variable to the corresponding stage.
+    Incorrect. To add "stageVariable" to the Lambda ARN, you do not use the Lambda alias name. You should use the following format: ${stageVariable.stageVariableName}. You use the Lambda execution role to grant Lambda permission to AWS resources. The resource-based policy allows other services to invoke the Lambda function.
+
 ## 16
+
+A company notices performance degradation in one of its production web applications. The application is running on AWS services and uses a microservices architecture. The company suspects that one of these microservices is causing the performance issue.
+
+Which AWS solution should the company use to identify the service that is contributing to higher application latency?
+
+- A: AWS X-Ray service map
+
+- B: AWS CloudTrail event history
+
+- C: Amazon EventBridge events
+
+- D: AWS Trusted Advisor performance report
+
+Correct answer
+
+- A: AWS X-Ray service map
+    Correct. X-Ray creates a map of services used by your application with trace data. You can use the trace data to drill into specific services or issues. This data provides a view of connections between services in your application and aggregated data for each service, including average latency and failure rates.
+
+Notes
+
+- EventBridge delivers a near-real-time stream of system events that describe changes in Amazon Web Services resources. It is not used for identifying application performance issues.
+
+- CloudTrail event history is used to record API calls for governance, compliance operation, and risk auditing purposes. CloudTrail is not a service that is used for identifying application performance issues.
+
+- Trusted Advisor provides real-time guidance to help provision AWS resources to follow AWS best practices. It can report overall system utilization, but it is not used for identifying application performance issues.
 
 ## 17
 
+A developer migrates a web application from an on-premises data center to the AWS Cloud. Authenticated customers use the application from many different clients simultaneously, including laptops, smartphones, and tablets. The application runs on Amazon EC2 instances behind an Application Load Balancer. The instances run in an Amazon EC2 Auto Scaling group. Upon initial testing, users report that when switching devices, activity from their previous sessions is not saved.
+
+Which solution will make the session state information persist across devices?
+
+- A: Implement sticky sessions at the Application Load Balancer.
+
+- B: Store session state information in an Amazon ElastiCache for Redis cluster.
+
+- C: Implement session state information storage in a local file on the webserver.
+
+- D: Store session state information in AWS Systems Manager State Manager.
+
+Correct answer
+
+- B: Store session state information in an Amazon ElastiCache for Redis cluster.
+
+    Correct. ElastiCache for Redis is a fast in-memory data store that provides sub-millisecond latency to power internet-scale applications in real time. The data will not be stored on the instance itself. This choice is ideal for ensuring that the session state information persists across devices.
+
+Notes
+
+- The sticky session feature of the Application Load Balancer does not solve the problem across devices. Sticky sessions rely on a cookie that is not going to be consistent across devices.
+
+- A local file could store session state information persistently over time, but this does not solve the problem presented. If session state information is stored locally on the instance when a request is sent to another node behind the Application Load Balancer, the other node does not have access to the session state information.
+
+- Incorrect. Systems Manager State Manager is not for use of session state information management. Systems Manager State Manager is used to manage the state of an instance itself, such as specific instance configurations or software installations.
+
 ## 18
+
+Functions activity workers run on tablets that warehouse employees use. Some long-running activities fail because of problems with individual tablets. These problems include loss of battery power. The application must re-assign interrupted activities to another worker as soon as possible. If an activity fails three times, the state machine should fail.
+
+Which Step Functions configuration will meet these requirements?
+
+- A: Set the state machine's States.Timeout attribute to 30 seconds. Set the state machine's Retry.MaxAttempts attribute to 3.
+
+- B: Set the task's HeartbeatSeconds attribute to 30. Set the state machine's States.TaskFailed attribute to 3.
+
+- C: Set the task's TimeoutSeconds attribute to 30. Set the Retry.MaxAttempts attribute to 3.
+
+- D: Set the task's HeartbeatSeconds attribute to 30 seconds. Set the Retry.MaxAttempts attribute to 3.
+
+Correct answer
+
+- D: Set the task's HeartbeatSeconds attribute to 30 seconds. Set the Retry.MaxAttempts attribute to 3.
+
+    Correct. The HeartbeatSeconds attribute defines the maximum interval that the task will wait for a heartbeat signal. If an activity worker fails to send heartbeats within this interval, the state is failed. A retry policy on the state allows another activity worker to attempt to complete the state.
+
+    For more information about the HeartbeatSeconds attribute, see Waiting for an Activity Task to Complete.
+
+    For more information about the Retry field, see Error Handling in Step Functions.
+
+Notes
+
+- A: Set the state machine's States.Timeout attribute to 30 seconds. Set the state machine's Retry.MaxAttempts attribute to 3.
+
+    Incorrect. You set the Retry field at the individual state level, not at the overall state machine level. States.Timeout is an error name and not a field that you can set.
+
+    For more information about the Retry field, see Error Handling in Step Functions.
+
+    For more information about how to configure a workflow to wait for a task to finish, see Waiting for an Activity Task to Complete.
+
+- B: Set the task's HeartbeatSeconds attribute to 30. Set the state machine's States.TaskFailed attribute to 3.
+
+    Incorrect. States.TaskFailed is an error name. This error name is not a field that you can set.
+
+    For more information about error handling, see Error Handling in Step Functions.
+
+- C: Set the task's TimeoutSeconds attribute to 30. Set the Retry.MaxAttempts attribute to 3.
+
+    Incorrect. The TimeoutSeconds attribute defines the maximum task duration before the task is considered failed. A value of 30 would cause any task that runs longer than 30 seconds to fail, even if there were no problems with the tablet.
+
+    For more information about the TimeoutSeconds attribute, see Task.
 
 ## 19
 
+A developer tests code running on the developer's laptop. The code is using the AWS SDK for Python (Boto3) to access AWS services. The .aws/credentials file is set up with the user's IAM user name and password. The developer runs the code and receives this error message:
+
+An error occurred (InvalidAccessKeyId)
+
+Which action will resolve this error?
+
+- A: Move the IAM user name and password to the .aws/config file.
+
+- B: Place the Amazon Resource Name (ARN) of a valid IAM role in the AWS_PROFILE environment variable.
+
+- C: Move the user name and password to environment variables.
+
+- D: Replace the IAM user name and password with an access key ID and a secret access key.
+
+Correct answer
+
+- D: Replace the IAM user name and password with an access key ID and a secret access key.
+
 ## 20
+
+A company is developing a Python application that submits data to an Amazon DynamoDB table. The company requires client-side encryption of specific data items and end-to-end protection for the encrypted data in transit and at rest.
+
+Which combination of steps will meet the requirement to encrypt specific data items? (Select TWO.)
+
+- A: Generate symmetric encryption keys with AWS Key Management Service (AWS KMS).
+
+- B: Generate asymmetric encryption keys with AWS Key Management Service (AWS KMS).
+
+- C: Use generated keys with the AWS Database Encryption SDK.
+
+- D: Use generated keys to configure DynamoDB table encryption with AWS managed KMS keys.
+
+- E: Use generated keys to configure DynamoDB table encryption with AWS owned KMS keys.
+
+Correct answers
+
+- A: Generate symmetric encryption keys with AWS Key Management Service (AWS KMS).
+
+    Correct. When you configure the AWS Database Encryption SDK to use AWS KMS, the AWS Database Encryption SDK uses a KMS key that is always encrypted when the key is used outside of AWS KMS. This cryptographic materials provider returns a unique encryption key and a signing key for every table item. This method of encryption uses a symmetric KMS key.
+
+    For more information about the Direct KMS Materials Provider that the AWS Database Encryption SDK uses, see Direct KMS Materials Provider.
+
+    For more information about KMS keys, see AWS KMS Concepts.
+
+- C: Use generated keys with the AWS Database Encryption SDK.
+
+    Correct. The AWS Database Encryption SDK provides end-to-end protection for your data in transit and at rest. You can encrypt selected items or attribute values in a table.
+
+    For more information about DynamoDB client-side and server-side encryption, see Client-Side and Server-Side Encryption.
+
+    For more information about the AWS Database Encryption SDK, see What Is the AWS Database Encryption SDK?
+
+    For more information about how the AWS Database Encryption SDK works, see How the AWS Database Encryption SDK Works.
+
+Notes
+
+- B: Generate asymmetric encryption keys with AWS Key Management Service (AWS KMS).
+
+    Incorrect. When you configure the AWS Database Encryption SDK to use AWS KMS, the AWS Database Encryption SDK uses a KMS key that is always encrypted when the key is used outside of AWS KMS. This cryptographic materials provider returns a unique encryption key and a signing key for every table item. This method of encryption would require a symmetric KMS key, not an asymmetric key.
+
+- D: Use generated keys to configure DynamoDB table encryption with AWS managed KMS keys.
+
+    Incorrect. You can use this method for server-side encryption at rest. This solution does not meet the requirement for client-side encryption.
+
+- E: Use generated keys to configure DynamoDB table encryption with AWS owned KMS keys.
+
+    Incorrect. You can use this method for server-side encryption at rest. This solution does not meet the requirement for client-side encryption.
