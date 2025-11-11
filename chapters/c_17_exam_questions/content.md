@@ -170,3 +170,86 @@ Correct answer:
     For more information about Amazon SNS fanout architecture, see Common Amazon SNS scenarios
 
 ## 7
+
+A developer configures AWS CodeDeploy to install an application on Amazon EC2 instances in an Amazon EC2 Auto Scaling group.
+
+Where should the developer place the appspec.yml file?
+
+- A: In the root of the directory structure of the application's source code
+- B: Directly into the CodeDeploy console
+- C: In the .ebextensions folder in the application's source code
+- D: In the same Amazon S3 bucket as the application source code bundle
+
+Correct answer
+
+- A: In the root of the directory structure of the application's source code
+
+    To deploy an application on EC2 instances, the appspec.yml file must be placed in the root of the directory structure of an application's source code.
+
+    For more information about CodeDeploy appspec.yml file configuration when using EC2 instances, see CodeDeploy AppSpec File reference.
+
+## 8
+
+A developer wants to monitor invocations of an AWS Lambda function by using Amazon CloudWatch Logs. The developer added a number of print statements to the function code that write the logging information to the stdout stream. After running the function, the developer does not see any log data being generated.
+
+Why does the log data NOT appear in the CloudWatch logs?
+
+- A: The log data is not written to the stderr stream.
+
+- B: Lambda function logging is not automatically enabled.
+
+- C: The execution role for the Lambda function did not grant permissions to write log data to CloudWatch Logs.
+
+- D: The Lambda function outputs the logs to an Amazon S3 bucket.
+
+Correct answer
+
+- C: The execution role for the Lambda function did not grant permissions to write log data to CloudWatch Logs.
+
+    The function needs permission to call CloudWatch Logs. Update the execution role to grant the permission. You can use the managed policy of AWSLambdaBasicExecutionRole.
+
+    For more information about troubleshooting execution issues in Lambda, see Troubleshoot execution issues in Lambda.
+
+## 9
+
+A developer built an application that stores data in an Amazon RDS Multi-AZ DB instance. The database performs reads and writes constantly and is responding slowly. The intensive read requests are received unpredictably several times each hour. The application cannot tolerate reading stale data. The developer must increase the retrieval speed for the intensive read requests.
+
+Which strategy will meet these requirements?
+
+- A. Use an Amazon ElastiCache cluster with a write-through strategy. Configure the application to direct the intensive read operations to ElastiCache.
+
+- B. Use an Amazon DynamoDB Accelerator (DAX) cluster with a write-through strategy. Configure the application to direct the intensive read operations to the DAX cluster.
+
+- C. Configure the application to direct the intensive read operations to the Multi-AZ standby replica in the second Availability Zone.
+
+- D. Add an RDS read replica. Configure the application to direct the intensive read operations to the read replica.
+
+Correct answer
+
+- A. Use an Amazon ElastiCache cluster with a write-through strategy. Configure the application to direct the intensive read operations to ElastiCache.
+
+    An ElastiCache cluster with a write-through strategy will allow for the read requests to be redirected to ElastiCache efficiently. The strategy will allow for the most up-to-date data to be retrieved.
+
+    For more information about the ElastiCache write-through caching strategy, see Caching strategies.
+
+## 10
+
+## 11
+
+## 12
+
+## 13
+
+## 14
+
+## 15
+
+## 16
+
+## 17
+
+## 18
+
+## 19
+
+## 20
