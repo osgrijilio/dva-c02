@@ -1,26 +1,28 @@
 # Exam preparation
 
-## Watching now
+## Now doing
 
-AWS Technical Essentials Part 1
+AWS builder labs
 
 ## Recommended steps
 
-Step 1: Take AWS Certification Official Practice Question. 3h.
+- [x] Step 1: Take AWS Certification Official Practice Question. 3h.
 
-Step 2: Digital courses and practice on AWS Builder labs, AWS Cloud Quest, AWS Jam. 2 weeks.
+- [ ] Step 2: Digital courses and practice on AWS Builder labs, AWS Cloud Quest, AWS Jam. 2 weeks.
 
-Step 3: Explore each domain's topics and how they align to AWS services. Reinforce knowledge. AWS Builder labs. 8h.
-Domain review course. Domain practice course.
-AWS Power Hour
+- [ ] Step 3: Explore each domain's topics and how they align to AWS services. Reinforce knowledge. AWS Builder labs. 8h.
+
+- [ ] Step 4: Domain review course. Domain practice course.
+
+- [ ] Step 5: AWS Power Hour
 
 ## Step 3
 
 Digital courses:
 
-- AWS Technical Essentials (4 hours)
-- Getting Started with DevOps on AWS (1 hour)
-- Deploying Serverless Applications (1.5 hours)
+- [x] AWS Technical Essentials (4 hours)
+- [ ] Getting Started with DevOps on AWS (1 hour)
+- [ ] Deploying Serverless Applications (1.5 hours)
 
 Digital Classroom
 
