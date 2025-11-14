@@ -92,25 +92,25 @@ There are seven core principles that can help you achieve a DevOps culture.
 
 1. __Focus on customer needs__
 
-    A customer first mindset is a key factor in driving development. For example, with feedback loops DevOps teams stay in-touch with their customer and develop software that meets the customer needs. With a microservices architecture, they are able to quickly switch direction and align their efforts to those needs. 
+    A customer first mindset is a key factor in driving development. For example, with feedback loops DevOps teams stay in-touch with their customer and develop software that meets the customer needs. With a microservices architecture, they are able to quickly switch direction and align their efforts to those needs.
 
     Streamlined processes and automation deliver requested updates faster and keep customer satisfaction high. Monitoring helps teams determine the success of their application and continuously align their customer focused efforts.
 
 1. __Develop small and release often__
 
-    Applications are no longer being developed as one monolithic system with rigid development, testing, and deployment practices. Application architectures are designed with smaller, loosely coupled components. Overarching policies (such as backward compatibility, or change management) are in place and provide governance to development efforts. Teams are organized to match the required system architecture. They have a sense of ownership for their efforts. 
+    Applications are no longer being developed as one monolithic system with rigid development, testing, and deployment practices. Application architectures are designed with smaller, loosely coupled components. Overarching policies (such as backward compatibility, or change management) are in place and provide governance to development efforts. Teams are organized to match the required system architecture. They have a sense of ownership for their efforts.
 
     Adopting modern development practices, such as small and frequent code releases, gives teams the agility they need to be responsive to customer needs and business objectives.
 
 1. __Include security at every phase__
 
-    To support continuous delivery, security must be iterative, incremental, automated, and in every phase of the application lifecycle, instead of something that is done before a release. Educate the development and operations teams to embed security into each step of the application lifecycle. This way, you can identify and resolve potential vulnerabilities before they become major issues and are more expensive to fix. 
+    To support continuous delivery, security must be iterative, incremental, automated, and in every phase of the application lifecycle, instead of something that is done before a release. Educate the development and operations teams to embed security into each step of the application lifecycle. This way, you can identify and resolve potential vulnerabilities before they become major issues and are more expensive to fix.
 
     For example, you can include security testing to scan for hard-coded access keys, or usage of restricted ports.
 
 1. __Continuously experiment and learn__
 
-    Inquiry, innovation, learning, and mentoring are encouraged and incorporated into DevOps processes. Teams are innovative and their progress is monitored. With innovation, failure will happen. Leadership accepts failure and teams are encouraged to see failure as a learning opportunity. 
+    Inquiry, innovation, learning, and mentoring are encouraged and incorporated into DevOps processes. Teams are innovative and their progress is monitored. With innovation, failure will happen. Leadership accepts failure and teams are encouraged to see failure as a learning opportunity.
 
     For example, teams use DevOps tools to spin-up environments on demand, enabling them to experiment and innovate, perhaps on the use of new technology to support a customer requirement.
 
@@ -126,11 +126,11 @@ There's a fallacy here:
 
 ## Practices
 
-DevOps culture leads to DevOps practices that are geared toward streamlining and improving the development lifecycle, to reliably deliver frequent updates, while maintaining stability. 
+DevOps culture leads to DevOps practices that are geared toward streamlining and improving the development lifecycle, to reliably deliver frequent updates, while maintaining stability.
 
 - __Communication and collaboration__
 
-    DevOps teams set strong cultural norms around transparency of information and communication. These cross-functional teams have ownership and thus, instead of evaluating just their work, they consider the project needs collectively. They build empathy for each other’s efforts, partnerships, and trust, while collaborating towards common goals. They physically bring together traditional development and operations workflows and systematically improve productivity. 
+    DevOps teams set strong cultural norms around transparency of information and communication. These cross-functional teams have ownership and thus, instead of evaluating just their work, they consider the project needs collectively. They build empathy for each other’s efforts, partnerships, and trust, while collaborating towards common goals. They physically bring together traditional development and operations workflows and systematically improve productivity.
 
     DevOps tools and automation of the delivery process, support these consolidated processes and workflows, coordinate efforts, automate repetitive tasks, and facilitate feedback loops required in good communication and collaboration.
 
@@ -164,11 +164,11 @@ DevOps culture leads to DevOps practices that are geared toward streamlining and
 
 - __Infrastructure as code__
 
-    Development, testing, and production run on complex environments comprised of hardware and software. Manually spinning up and setting environments does not scale and is error prone. 
+    Development, testing, and production run on complex environments comprised of hardware and software. Manually spinning up and setting environments does not scale and is error prone.
 
     Infrastructure as code (IaC) is a practice in which infrastructure is provisioned and managed using code and software development techniques, such as version control and continuous integration.
 
-    The cloud’s API-driven model enables developers and system administrators to interact with infrastructure programmatically, and at scale, instead of needing to manually set up and configure resources. Because environments are defined by code, they can quickly be deployed with dynamically enforced compliance, updated with the latest patches, rolled back to a previous version, or duplicated in repeatable ways. Also, by reacting to environment changes through modification to this code, you can track changes, optimize resources, and improve system uptime. 
+    The cloud’s API-driven model enables developers and system administrators to interact with infrastructure programmatically, and at scale, instead of needing to manually set up and configure resources. Because environments are defined by code, they can quickly be deployed with dynamically enforced compliance, updated with the latest patches, rolled back to a previous version, or duplicated in repeatable ways. Also, by reacting to environment changes through modification to this code, you can track changes, optimize resources, and improve system uptime.
     A DevOps pipeline is a set of stages that move code from source, all the way to deployment. The graphic that follows depicts typical stages in a DevOps pipeline and depicts the phases involved in a CI/CD pipeline.
 
 A CI/CD pipeline is a good example of how DevOps teams use tools to streamline workflows and standardize practices. A CI/CD pipeline assures code quality, security, and fast, consistent deployments by repeatably progressing through the pipeline. DevOps teams iteratively remove process overlaps, human errors, and bottlenecks through automation.
@@ -236,3 +236,69 @@ Lifecycle stages:
 
     Monitor the application in production to quickly detect unusual activity or errors.
 
+## DevOps tools
+
+DevOps practices require DevOps tools. Tools make processes easier, consistent, and predictable.
+
+As you are learning about DevOps tools, it is important to realize that AWS's DevOps tools integrate with other third-party tools. AWS partners integrate with and extend AWS's offerings. This means that you can use tools such as GitHub and Jenkins to build your DevOps toolchain, which will support your teams and optimize their processes. Use your preferred third-party and open source tools with AWS to build your end-to-end solution.
+AWS provides services that help you practice DevOps at your company. Later on in the course, you will learn about AWS DevOps tools and services. For now, here are general categories of tools you might need to support your DevOps efforts.
+
+- __Cloud__
+
+    Development teams need to quickly innovate and deliver reliable and secure applications. Teams rely on cloud platform providers and cloud computing resources for an array of technologies to support application development efforts. Instead of buying, owning, and maintaining physical data centers and servers, teams provision environments on demand, using cloud providers like AWS.
+
+- __Development__
+
+    DevOps teams need to continuously collaborate with their team members. There are several tools that help teams develop and deliver faster. Integrated development environments (IDEs) help you write, run, and debug code for your applications. Software development kits (SDKs) are sets of tools that allow programmers to develop applications for a specific platform. Source code repositories, or version control systems, store the files of your project.
+
+    As needed, you can access your documents and code, see revision history, compare changes over time, or revert to previous versions.
+
+    Examples:
+      - IDEs: AWS Cloud9, IntelliJ, Eclipse, Visual Studio Code
+      - SDKs: AWS SDK for Java, iPhone SDK
+      - Source code repositories: GitHub, AWS CodeCommit
+
+- __CI/CD__
+
+    Practices such as continuous testing, continuous integration (CI), and continuous delivery/deployment (CD) are supported by tools that bring seamless continuity in all the development phases. CI/CD tools automate continuously integrated code that teams develop, check compliance with standards, run testing more frequently, promote code to different test environments, and deploy products to the infrastructure, repeatedly and reliably.
+
+    CI/CD tools should help bring agility to the application development and deployment processes, while continuously providing feedback and alerting appropriate teams of any issues.
+
+    Examples:
+      - Build tools: Jenkins, Travis CI, AWS CodeBuild
+      - Source control tools, repositories: Git, AWS CodeCommit
+      - Deployment tools: AWS CodeDeploy, AWS CloudFormation
+      - Pipeline automation tools: AWS CodePipeline, Jenkins, GitLab
+
+- __Infrastructure automation__
+
+    Programmatically define your infrastructure, including constraints, to repeatedly and consistently provision your environments (development sandboxes, testing, staging, production).
+
+    Using templates, you can deploy compute services, permissions, dependencies, and more. You can configure rules and automate remediation.
+
+    Examples:
+      - Infrastructure automation tools: AWS CloudFormation, Terraform, AWS Elastic Beanstalk
+      - Configuration management tools: Chef, Puppet, AWS OpsWorks
+
+- __Containers and serverless__
+
+    Containers and serverless compute services enable the developers to focus on applications, and not on the details of the host environment.
+
+    Containers package code, configuration settings, and dependencies needed to run the application. This way, the application is portable and can run on any server. Containers are similar to virtual machines, but more lightweight because they are virtualized at the operating system (OS) level. Containers run anything from microservices to legacy large applications. They streamline the way you build, test, and deploy applications to multiple environments.
+
+    They make the deployed application more secure because security policies can be implemented at the container level. Containers however, require container orchestration for managing or scheduling the work of individual containers.
+    Serverless compute services are services that allow you to build and run code, and let the infrastructure overhead be managed by the service's cloud provider, like AWS.
+
+    Examples:
+      - Serverless services: AWS Lambda, AWS Fargate
+      - Container services:
+      - Runtimes: Docker, Containerd
+      - Orchestration: Amazon Elastic Container Service (Amazon ECS), Kubernetes, Amazon Elastic Kubernetes Service (Amazon EKS)
+
+- __Monitoring and observability__
+
+    Monitoring and observability are key aspects of DevOps, helping you be proactive in preventing challenges before they occur. With tools, you can collect metrics on the health and performance of your application. You can capture deployment frequency, identify successful or failed deployments, application usage traffic, and more.
+
+    Tools can help you trace end-to-end request and transaction flows through a distributed system. With tools, you can visualize and analyze logs, metrics, and traces to uncover new insights on the health, performance, and availability of your system. With insight you can streamline your processes, improve system performance, and reduce downtime.
+
+    Examples: AWS X-Ray, Amazon CloudWatch, AWS Config, AWS CloudTrail
