@@ -120,3 +120,119 @@ There are seven core principles that can help you achieve a DevOps culture.
 
     They also strive to increase stability and reduce the mean time to restore service. Using the right monitoring tools, you can set application benchmarks for usual behaviors, and continuously monitor for variations.
 
+There's a fallacy here:
+
+1. Complex logic will require time to be implemented, regardless the methods.
+
+## Practices
+
+DevOps culture leads to DevOps practices that are geared toward streamlining and improving the development lifecycle, to reliably deliver frequent updates, while maintaining stability. 
+
+- __Communication and collaboration__
+
+    DevOps teams set strong cultural norms around transparency of information and communication. These cross-functional teams have ownership and thus, instead of evaluating just their work, they consider the project needs collectively. They build empathy for each other’s efforts, partnerships, and trust, while collaborating towards common goals. They physically bring together traditional development and operations workflows and systematically improve productivity. 
+
+    DevOps tools and automation of the delivery process, support these consolidated processes and workflows, coordinate efforts, automate repetitive tasks, and facilitate feedback loops required in good communication and collaboration.
+
+– __Monitoring and observability__
+
+    Monitoring and observability are used to assess how effective changes to the application and infrastructure are, and how they impact performance and overall user experience. Part of DevOps feedback loops, monitoring and observability help teams react, learn, plan, and improve.
+
+    An observable system is a system that generates enough data from all resources, applications, and services in the form of logs, metrics, and traces to gain system-wide operational visibility. Logs report on discrete events, such as warnings. Metrics capture health and performance information, such as request rate or response time. Traces report on transactions and the flow of data across a distributed system, such as one comprised of microservices. 
+
+    By observing a system, you can draw concise inferences about why something is happening.
+
+    Monitoring tells you what is happening with your system. By consolidating and visualizing data gathered by an observable system over time, teams gain insight on performance, identify trends, can set alarms, and make predictions on expected outcomes.
+
+- __Continuous integration (CI)__
+
+    Continuous integration is a DevOps software development practice where developers regularly merge their code changes into a central repository, after which automated builds and tests are run. This way, teams can resolve merging issues and code defects early, when they are easier and more cost effective to resolve.
+
+    Continuous integration most often refers to the build or integration stage of the software release process. It requires both an automation component (for example, a CI or build service) and a cultural component (for example, learning to integrate frequently). The key goals of continuous integration are to find and address bugs quicker, improve software quality, and reduce the time it takes to validate and release new software updates.
+
+- __Continuous delivery/continuous deployment (CD)__
+
+    Continuous delivery is a software development practice where every code change is automatically built, tested, and then deployed to a non-production testing or staging environment. Manual approval is required before pushing to production. When properly implemented, developers will always have a deployment-ready build artifact that has passed through a standardized test process.
+
+    Continuous deployment is similar to continuous delivery, but with automatic deployment to production. Tested code does not need an explicit approval before being pushed to production.
+
+- __Microservices architecture__
+
+    A microservices architecture, is a design approach that builds an application as a set of loosely coupled services. Each service is designed for a set of capabilities and focuses on solving a specific business problem. Services do not need to share any of their code or implementation with other services. Any communication between individual components happens via well-defined APIs. These services can be assigned to fully accountable teams, and be developed, tested, an deployed independently of other services.
+
+    According to research from DevOps Research and Assessment (DORA), the type of architecture the team settles on, is a direct predictor of how successful they will be with achieving continuous delivery. The nature of microservices supports faster development, updates and corrections, and quicker deployments.
+
+- __Infrastructure as code__
+
+    Development, testing, and production run on complex environments comprised of hardware and software. Manually spinning up and setting environments does not scale and is error prone. 
+
+    Infrastructure as code (IaC) is a practice in which infrastructure is provisioned and managed using code and software development techniques, such as version control and continuous integration.
+
+    The cloud’s API-driven model enables developers and system administrators to interact with infrastructure programmatically, and at scale, instead of needing to manually set up and configure resources. Because environments are defined by code, they can quickly be deployed with dynamically enforced compliance, updated with the latest patches, rolled back to a previous version, or duplicated in repeatable ways. Also, by reacting to environment changes through modification to this code, you can track changes, optimize resources, and improve system uptime. 
+    A DevOps pipeline is a set of stages that move code from source, all the way to deployment. The graphic that follows depicts typical stages in a DevOps pipeline and depicts the phases involved in a CI/CD pipeline.
+
+A CI/CD pipeline is a good example of how DevOps teams use tools to streamline workflows and standardize practices. A CI/CD pipeline assures code quality, security, and fast, consistent deployments by repeatably progressing through the pipeline. DevOps teams iteratively remove process overlaps, human errors, and bottlenecks through automation.
+
+Every DevOps team requires an efficient and reliable CI/CD pipeline. A CI/CD pipeline requires a well-integrated tool chain.
+
+![CI/CD Pipeline](resources/ci-cd-pipeline.png)
+
+Lifecycle stages:
+
+1. __Code__
+
+    Devevelop code in languages such as java, .NET, or Python.
+    When ready, deliver this code to a central location.
+    Peers review the new code.
+
+1. __Build__
+
+    Creating builds of your software may include some of these actions:
+
+    - Compile code
+    - Check code styles and standards
+    - Analyze code complexity and maintainability
+    - Validate dependencies
+    - Create container images
+    - Run unit tests
+
+1. __Test__
+
+    Assess if the application meets the defined functional, performance, design, and implementation requirements.
+    Some testing practices are:
+
+    - Functional testing
+    - Integration testing
+    - Regression testing
+    - Acceptance testing
+    - Load testing
+    - Security testing
+
+    Leo recommends these environment mappings:
+    - __Test__
+        - Functional testing
+        - Security testing
+    - __System Integration Testing (SIT)__
+        - Integration testing
+    - __Conference Room Pilot (CRP)__
+        - Regression testing
+    - __User Acceptance Testing (UAT)__
+        - Acceptance testing
+        - Load testing
+    - __Prod__
+        - Production
+
+    See [Environment types](c_90_conventions.md#test-processes-and-environment-types)
+
+1. __Release__
+
+    Prepare and package the tested code with a specific version number.
+
+1. __Deploy__
+
+    Deploy the release to targeted environments such as test, staging, alpha, beta, or production.
+
+1. __Monitor__
+
+    Monitor the application in production to quickly detect unusual activity or errors.
+
