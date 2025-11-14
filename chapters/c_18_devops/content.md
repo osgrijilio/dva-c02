@@ -302,3 +302,42 @@ AWS provides services that help you practice DevOps at your company. Later on in
     Tools can help you trace end-to-end request and transaction flows through a distributed system. With tools, you can visualize and analyze logs, metrics, and traces to uncover new insights on the health, performance, and availability of your system. With insight you can streamline your processes, improve system performance, and reduce downtime.
 
     Examples: AWS X-Ray, Amazon CloudWatch, AWS Config, AWS CloudTrail
+
+## Amazon DevOps transformation
+
+Learn about Amazon's own transformation to DevOps which started from a desire to be responsive to customers' needs, and deliver value faster.
+
+In the early 2000s, the amazon.com retail website was a large architectural monolith. It was developed and updated with traditional development practices. The organizational structure was hierarchical, composed of siloed Development, Testing, and Operational teams.
+
+![Monolith](resources/amazon_stage-1_monolith.png)
+
+The application was being deployed as one unit. Amazon's development practices had all the typical difficulties of code dependencies, manual quality assurance processes, and cumbersome deployments. Amazon quickly realized that they were slowed down by the development architecture and the organizational structure. It eventually became apparent that something needed to change for Amazon to increase the speed of development and velocity of deployment to focus on customer needs. This process did not happen overnight, and occurred in stages.
+
+![Service Oriented Architecture](resources/amazon_stage-2_service_oriented.png)
+
+Amazon decoupled development, moving towards a service-oriented architecture. They also created small, cross functional two-pizza teams consisting of 8-10 people. The two-pizza teams were aligned with these services, given ownership, and could develop independently. Teams consistently found and eliminated redundancies within their processes. This sped up development, but Amazon knew they could do more. They realized that manual processes, hand-offs, and common release cycles were still causing delays. 
+
+![Microservices](resources/amazon_stage-3_microservice_tools.png)
+
+The monolithic architecture was completely decoupled into single-purposed services and soon became a microservices solution. Amazon built and adopted tools to visualize and automate the software release process, from checking in code, to testing, and to production. Monitoring throughout development and after the release, gave teams confidence. Soon, teams were releasing independently, faster, and reliably. 
+
+### Agility journey
+
+Amazon wanted agility, and transformation became their foundation for adopting DevOps.
+
+- __Decompose for agility__
+
+    Amazon changed their organizational structure and the monolithic architecture of the application. They started implementing service-oriented architecture, now known as microservices architecture. These services were decoupled from the overall application, had standard interfaces, and communicated with each other through standard interfaces. Rules were set, such as backward compatibility, to assure system stability. 
+
+    Small, cross-functional, autonomous, and independent two pizza teams were developed. Two pizza teams consist of 8-10 people. These teams have end-to-end ownership of these services. Shared organizational goals and communication enable these small teams to dynamically adjust, develop, and deploy as quickly as they need to.
+
+- __Use tools and automate__
+
+    The two pizza teams soon realized that to maximize their efforts and best leverage the team resources, they had to implement best practices for deployment and to leverage automation. Metrics and monitoring supported their decisions. Templates, processes, and tools were put in place to support teams. Automation was used in pre-production and post-production phases. 
+
+    For example, security policies were created to stop teams from deploying code with known security risks. Testing is done early and more frequently, catching errors early in development. Automation started appearing with source and build tasks, in testing and in the deployment phase, and soon became full CI/CD. Automation increased velocity and reduced errors by the team and on the final product.
+
+- __Transform the culture__
+
+    The DevOps transformation did not just happen overnight but rather through small increments over a long period of time. It had company-wide impact. It changed how individuals think about their work. Value is placed on innovation, improvement, and business results supported by metrics. In Amazon, teams went from silos to cross-functional teams. Education and collaboration became a focus and talent was in-sourced. Even though specialization of knowledge and team diversity exist, each member is aware of how their efforts affect the overall team objectives and they learn by trying. Small teams, ownership, talent in-sourcing, bottom-up planning, communication, collaboration, automation, and continuous improvement through innovation and monitoring have become a driving force for the culture at Amazon.
+    Amazon, and other organizations, have transitioned from well-established traditional development practices to DevOps. With DevOps, organization can innovate, deliver products, and scale at a faster pace than organizations that use traditional software development and infrastructure management processes. This way, they can better serve their customers and compete more effectively in the market.
