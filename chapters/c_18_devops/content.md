@@ -315,11 +315,11 @@ The application was being deployed as one unit. Amazon's development practices h
 
 ![Service Oriented Architecture](resources/amazon_stage-2_service_oriented.png)
 
-Amazon decoupled development, moving towards a service-oriented architecture. They also created small, cross functional two-pizza teams consisting of 8-10 people. The two-pizza teams were aligned with these services, given ownership, and could develop independently. Teams consistently found and eliminated redundancies within their processes. This sped up development, but Amazon knew they could do more. They realized that manual processes, hand-offs, and common release cycles were still causing delays. 
+Amazon decoupled development, moving towards a service-oriented architecture. They also created small, cross functional two-pizza teams consisting of 8-10 people. The two-pizza teams were aligned with these services, given ownership, and could develop independently. Teams consistently found and eliminated redundancies within their processes. This sped up development, but Amazon knew they could do more. They realized that manual processes, hand-offs, and common release cycles were still causing delays.
 
 ![Microservices](resources/amazon_stage-3_microservice_tools.png)
 
-The monolithic architecture was completely decoupled into single-purposed services and soon became a microservices solution. Amazon built and adopted tools to visualize and automate the software release process, from checking in code, to testing, and to production. Monitoring throughout development and after the release, gave teams confidence. Soon, teams were releasing independently, faster, and reliably. 
+The monolithic architecture was completely decoupled into single-purposed services and soon became a microservices solution. Amazon built and adopted tools to visualize and automate the software release process, from checking in code, to testing, and to production. Monitoring throughout development and after the release, gave teams confidence. Soon, teams were releasing independently, faster, and reliably.
 
 ### Agility journey
 
@@ -327,13 +327,13 @@ Amazon wanted agility, and transformation became their foundation for adopting D
 
 - __Decompose for agility__
 
-    Amazon changed their organizational structure and the monolithic architecture of the application. They started implementing service-oriented architecture, now known as microservices architecture. These services were decoupled from the overall application, had standard interfaces, and communicated with each other through standard interfaces. Rules were set, such as backward compatibility, to assure system stability. 
+    Amazon changed their organizational structure and the monolithic architecture of the application. They started implementing service-oriented architecture, now known as microservices architecture. These services were decoupled from the overall application, had standard interfaces, and communicated with each other through standard interfaces. Rules were set, such as backward compatibility, to assure system stability.
 
     Small, cross-functional, autonomous, and independent two pizza teams were developed. Two pizza teams consist of 8-10 people. These teams have end-to-end ownership of these services. Shared organizational goals and communication enable these small teams to dynamically adjust, develop, and deploy as quickly as they need to.
 
 - __Use tools and automate__
 
-    The two pizza teams soon realized that to maximize their efforts and best leverage the team resources, they had to implement best practices for deployment and to leverage automation. Metrics and monitoring supported their decisions. Templates, processes, and tools were put in place to support teams. Automation was used in pre-production and post-production phases. 
+    The two pizza teams soon realized that to maximize their efforts and best leverage the team resources, they had to implement best practices for deployment and to leverage automation. Metrics and monitoring supported their decisions. Templates, processes, and tools were put in place to support teams. Automation was used in pre-production and post-production phases.
 
     For example, security policies were created to stop teams from deploying code with known security risks. Testing is done early and more frequently, catching errors early in development. Automation started appearing with source and build tasks, in testing and in the deployment phase, and soon became full CI/CD. Automation increased velocity and reduced errors by the team and on the final product.
 
@@ -342,3 +342,238 @@ Amazon wanted agility, and transformation became their foundation for adopting D
     The DevOps transformation did not just happen overnight but rather through small increments over a long period of time. It had company-wide impact. It changed how individuals think about their work. Value is placed on innovation, improvement, and business results supported by metrics. In Amazon, teams went from silos to cross-functional teams. Education and collaboration became a focus and talent was in-sourced. Even though specialization of knowledge and team diversity exist, each member is aware of how their efforts affect the overall team objectives and they learn by trying. Small teams, ownership, talent in-sourcing, bottom-up planning, communication, collaboration, automation, and continuous improvement through innovation and monitoring have become a driving force for the culture at Amazon.
     Amazon, and other organizations, have transitioned from well-established traditional development practices to DevOps. With DevOps, organization can innovate, deliver products, and scale at a faster pace than organizations that use traditional software development and infrastructure management processes. This way, they can better serve their customers and compete more effectively in the market.
 
+## AWS DevOps Tools
+
+To successfully practice DevOps, you need effective tools that support your team and your workflows and help you deliver value faster. AWS supports DevOps with a number of services that developers use at every stage of the application lifecycle. As you learn more about the AWS services, remember that your DevOps solution might comprise AWS services and third-party solutions.
+
+![Tools](resources/tools.png)
+
+### AWS Cloud9
+
+You can use AWS Cloud9 to write, run, and debug your code. You can also make code changes to an AWS CodeCommit
+
+### AWS CodePipeline
+
+AWS CodePipeline is a fully managed continuous delivery service that helps you automate your release pipelines for fast and reliable application and infrastructure updates.
+CodePipeline automates the build, test, and deploy phases of your release process every time there is a code change, based on the release model you define.
+
+AWS CodePipeline is a continuous delivery service that enables you to model, visualize, and automate the steps required to release your software.
+
+- __Why use CodePipeline__
+
+  - Capture and visualize your pipeline, run it, view real-time status, and retry failed actions.
+  - Automate your release processes, eliminating human error, speed up delivery, and improve the quality of the release.
+  - Establish consistency in the release.
+  - Incorporate your source, build, and deploy tools.
+  - View pipeline history details.
+  - Integrate with third-party and AWS tools to build, test, and deploy your code when notified of a code change.
+
+- __Monitoring__
+
+    You can monitor your pipeline in a number of ways to assure its performance, reliability, and availability, and to find ways to improve it. You can monitor the pipeline directly from the AWS CodePipeline console, the command line interface (CLI), use Amazon EventBridge, or AWS CloudTrail.
+
+- __Security__
+
+    Security is an important part of any pipeline. CodePipeline supports resource-level permissions, enabling you to specify which user can perform what action on the pipeline. Some users might have read-only access to the pipeline, while others might have access to a particular stage or action within a stage. For more information about security, see Security in AWS CodePipeline(opens in a new tab).
+
+- __How it works__
+
+  With CodePipeline, you model your release process with a number of stages and actions.
+    CodePipeline breaks up your release workflow into a series of stages, such as code, build, and test. Each stage can have a number of actions that need to be performed.
+
+  - Actions are tasks that can run in sequence or in parallel to each other. Actions are associated with a service provider that runs the action, or they can require user intervention. Service providers can be AWS services (like CodeBuild, Amazon Simple Storage Service (Amazon S3), AWS Lambda, and AWS CloudFormation), or third-party services (like Jenkins and TeamCity).
+
+  - Action types include:
+
+    - Source (where the source is stored)
+    - Build (how to build the application)
+    - Test  how to test the application)
+    - Deploy (how to deploy the application)
+    - Approval (manual approval and notifications)
+    - Invoke (Invoke a custom function).
+
+Following is an example of a three-stage pipeline:
+
+![pipeline](resources/codepipeline.png)
+
+### AWS CodeCommit
+
+With AWS CodeCommit, you can securely store and source control your code
+AWS CodeCommit is a fully managed source control service that hosts secure Git-based repositories. A repository is a fundamental version control object in CodeCommit, and it stores your project files and source code.
+
+- __Why use CodeCommit__
+
+  - Eliminate the administrative overhead of managing your own hardware and software needed to store your code. CodeCommit is fully managed, highly available, and has no limits in the type or size of files it can store.
+
+  - Collaborate with your team on code using Git commands they already know. CodeCommit is a secure Git-based repository that can handle large numbers of files, code branches, and lengthy revision histories.
+
+  - Improve your existing workflow by integrating CodeCommit with other AWS services, IDEs, and third-party software (for example, Jira).
+
+- __Monitoring__
+
+    You can create notifications and trigger actions based on events such as creation of a branch, or when a commit is made.
+
+- __Security__
+
+    From a security perspective, access to the repository is managed with policies and user accounts. A version of the repository is found in the cloud, and can be assessed through HTTPS or Secure Shell (SSH). The data is encrypted at rest and in transit. For more information about security, see Security in AWS CodeCommit.(opens in a new tab)
+
+- __How it works__
+
+    In CodeCommit, you create a repository. Users clone it to their environments, creating their own copy of the repository. After making changes, they push those changes back to the CodeCommit repository.
+
+    The CodeCommit repository is managed with Git source control. Git commands (such as git add, git push, git branch) can be used to work and collaborate on the code.
+
+    If it is part of a pipeline, CodeCommit can start the pipeline when a new code change is made on the configured CodeCommit repository and branch.
+
+    Below is a screen-capture of a CodeCommit repository named myAppRepo, and the files it contains. You are looking at the main branch. Notifications can be created and sent, based on what is happening in your repository. Note the Developer Tools panel which can be used to access other services, like CodeBuild, CodeDeploy, and CodePipeline.
+
+![CodeCommit](resources/codecommit.jpg)
+
+### AWS CodeBuild
+
+With AWS CodeBuild, you can automatically compile source code, run tests, and produce software packages that are ready to deploy.
+
+AWS CodeBuild is a fully managed build service that automatically compiles source code, runs tests, and produces software packages.
+
+- __Why use CodeBuild?__
+
+  - Eliminate the need to set up, patch, update, and manage your own build servers, since CodeBuild is fully managed.
+
+  - Automatically compile source code, run tests, and produce build artifacts.
+
+  - Specify build commands to run at each phase of the build.
+
+  - Process multiple builds concurrently, for example, developers can continuously build and test their code, catch errors early, and correct them early.
+
+  - Leverage out of the box preconfigured build environments (such as .NET Core, Java, Ruby, Python, Go, NodeJS, Android and Docker). Build environments contain the operating system, programming language runtime, and build tools (such as Apache Maven, Gradle). You can also provide custom build environments suited to your needs by means of Docker images.
+
+  - Pull source code from CodeCommit, Amazon S3, GitHub, GitHub Enterprise, and Bitbucket.
+
+  - Integrate CodeBuild with Jenkins to simplify the build process.
+
+- __Monitoring__
+
+    You can monitor the build through the CodeBuild console, CloudWatch Logs and a number of other ways.
+
+- __Security__
+
+    Build artifacts are encrypted and you control access to your build projects through resource-level permissions in AWS Identity and Access Management (IAM) policies. For more information about security, see Security in AWS CodeBuild.(opens in a new tab)
+
+- __How it works__
+
+    CodeBuild uses information provided by a build project to create a build environment (a provisioned Docker container created fresh on every build) where it then runs the build. Here is an overview of the steps that CodeBuild takes during the build.
+
+    ![CodeBuild](resources/codebuild.png)
+
+    1. CodeBuild uses a build project to run a build. A build project contains information needed to run the build, such as source repository location, runtime environment, build command, and where to store the build output. To access CodeBuild, use either the AWS Management Console, AWS Command Line Interface (AWS CLI), AWS SDKs, or CodePipeline.
+    1. CodeBuild uses the build project to create a build environment.
+    1. CodeBuild downloads the code and uses a build specification (buildspec) file to run a build. A buildspec is a collection of build commands that will run at each phase of the build (like installing tool packages, running tests, or packaging your code) and related settings.
+    1. Any build output is uploaded to an Amazon S3 bucket and able to configure notifications.
+    1. Build output is streamed to the service console, and CloudWatch Logs.
+    1. Monitor the progress of the build through CloudWatch or other services.
+
+### AWS CodeDeploy
+
+AWS CodeDeploy is a fully managed deployment service that automates software deployments to a variety of compute services such as Amazon EC2, AWS Fargate, AWS Lambda, and your on-premises servers.
+
+AWS CodeDeploy is a fully managed service that automates your software deployments, allowing you to deploy reliably and rapidly. It automates code deployment to a variety of compute services, including Amazon Elastic Compute Cloud (Amazon EC2), AWS Fargate, AWS Lambda, or on-premises servers.
+
+- __Why use CodeDeploy?__
+
+  - Deploy server, serverless, or container applications.
+
+  - Automate deployments and eliminate the need for manual, error-prone operations. With CodeDeploy you can reliably and rapidly release new features and updates.
+
+  - Deploy on a variety of compute platforms including: AWS Lambda, Amazon ECS, Amazon EC2, or on-premises. You can even configure CodeDeploy to deploy to an Amazon EC2 Auto Scaling group, which will prepare the environment before traffic is sent to it.
+
+  - Concurrently deploy to one or multiple instances as the service scales to fit your needs.
+
+  - Minimize production downtime for your application by specifying if an update will be applied on an existing instance, or a newly provisioned environment that will replace the previous environment. You can also control how to handle the traffic-shifts from older to new versions. For example, if your application needs at least 50% of the instances in a deployment group to be up and serving traffic, you can specify that in your deployment configuration so that a deployment does not cause downtime.
+
+  - Automatically (or through user intervention) stop an unsuccessful deployment and roll back your deployment to a previous version.  
+
+- __Monitoring__
+
+    AWS provides various tools that you can use to monitor CodeDeploy, including CloudWatch alarms, the CodeDeploy console and more.
+
+- __Security__
+
+    You can configure CodeDeploy to meet your security and compliance objectives. For more information on security, see Security in AWS CodeDeploy.(opens in a new tab)
+
+- __How it works__
+
+    To automate the deployment to the appropriate compute resources, CodeDeploy needs to know which files to copy, what scripts to run, and where to deploy.  
+
+    The concept of an application is used by CodeDeploy to ensure it knows what to deploy (correct revision of code), where to deploy (deployment group), and how to deploy (deployment configuration).
+
+  - __Code__
+
+    - Identify the correct version (revision) of the code.
+
+    - With the code, you provide an application specification file (AppSpec file) which is used to manage each deployment. During deployment, CodeDeploy looks for your AppSpec file in the root directory of the application's source.
+
+    - The AppSpec file specifies where to copy the code and how to get it running. For example, it tells CodeDeploy how to stop the application if it is already running, how to install the code, what command to run before and after the code is installed, and how to get the application running again.
+
+  - __Deployment group__
+
+    - A deployment group specifies the deployment targeted environment. The information it contains is specific to the target compute platform: AWS Lambda, Amazon ECS, Amazon EC2, or on-premises. For example, Amazon ECS lets you specify the Amazon ECS service, load balancer and more. For Amazon EC2, it is a logical group of deployment target instances or physical environments.
+    - A CodeDeploy application can have one or more deployment groups.
+    - Security needs to be assigned so the environment can communicate with CodeDeploy.
+    - The CodeDeploy agent is needed if you are deploying to Amazon EC2 or an on-premises compute platform. It is installed and configured on the target instances. It accepts and executes requests on behalf of CodeDeploy.
+
+  - __Deployment configuration__
+
+    - A deployment configuration is a set of deployment rules and deployment success and failure conditions used by AWS CodeDeploy during a deployment. For an Amazon EC2 compute platform, it specifies the number or percentage of instances that must remain available during deployment. It also specifies if an instance in the deployment group is briefly taken offline and updated with the latest code revision, or if a new instance replaces the instances in the deployment group.
+
+The diagram below is an example of a deployment to an Amazon EC2 compute environment.
+
+![CodeDeploy](resources/codedeploy.png)
+
+### AWS X-Ray
+
+AWS X-Ray is a service that collects data about requests that your application serves, and provides tools that you can use to view, filter, and gain insights into that data to identify issues and opportunities for optimization.
+
+For any traced request to your application, you can see detailed information not only about the request and response, but also about calls that your application makes to downstream AWS resources, microservices, databases, and web APIs.
+
+### Amazon CloudWatch
+
+Amazon CloudWatch monitors your Amazon Web Services (AWS) resources and the applications you run on AWS in real time. You can use CloudWatch to collect and track
+metrics, which are variables you can measure for your resources and applications.
+
+The CloudWatch home page automatically displays metrics about every AWS service you use. You can additionally create custom dashboards to display metrics about your custom applications, and display custom collections of metrics that you choose.
+
+## Additional services you should know about
+
+### Integrated development environment (IDE) services
+
+An integrated development environment (IDE) improves a developer's productivity with features such as syntax highlighting, autocomplete and hints for syntax, and more. IDEs can be locally installed, or cloud-based and accessed from a web browser.
+
+__AWS Cloud9__ is Amazon's cloud-based IDE, which you can use to write, run, and debug your code with just a browser. You can use AWS Cloud9 to make code changes in a CodeCommit repository. You can also use AWS Cloud9 with the AWS specific software development kits (SDKs).
+
+### Infrastructure management services
+
+Handling your infrastructure as infrastructure-as-code (IaC) increases the team's agility and efficiency, makes the infrastructure more robust, and decreases overall cost. This is because with IaC, deploying and updating your infrastructure is consistent and repeatable.
+
+- __AWS CloudFormation__ is an infrastructure-as-code service. Using templates, you can describe your needed resources and their dependencies, so you can quickly and consistently provision them and manage them throughout their lifecycles. Create, update, and delete an entire stack as a single unit, as often as you need to, instead of managing resources individually. You can manage and provision stacks across multiple AWS accounts and AWS Regions.
+
+- __AWS OpsWorks__ is a configuration management service. It provides managed instances of Chef and Puppet automation platforms and helps you automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments.
+
+### Containers and serverless services
+
+AWS offers a number of services that support development efforts and enhance your pipeline, including:
+
+- __AWS Lambda__ is a serverless compute service that lets you write code and run it when it gets invoked. With Lambda functions, you can customize your CI/CD pipeline. For example, you can approve release actions, halt the release flow, and control traffic flow during deployments, and more.
+
+- __Amazon Elastic Container service (Amazon ECS)__ is a highly scalable, high performance container management service that supports Docker containers. It enables you to easily run applications on a managed cluster of Amazon Elastic Compute Cloud (Amazon EC2) instances. ECS eliminates the need for you to install, operate, and scale container management software.
+
+### Monitoring services
+
+Monitoring is a key part of DevOps. It helps you to be proactive in preventing challenges before they occur. Here are a few monitoring services you should know.
+
+- __AWS X-Ray__ is a distributed tracing system. It helps you analyze and debug your distributed applications, such as those built using microservices, or serverless architecture. It provides an end-to-end view of requests as they travel through your application, and shows a map of your application's underlying components.
+
+- __Amazon CloudWatch__ is a monitoring and management service that provides data and actionable insights for AWS, hybrid, and on-premises applications and infrastructure resources. With CloudWatch, you can track resources and application performance, collect and monitor log files, troubleshoot, and set alarm notifications.
+
+- __AWS Config__ is a service that enables you to assess, audit, and evaluate the configurations of your AWS resources. AWS Config continuously monitors and records your AWS resource configurations. It enables you to automate the evaluation of recorded configurations against desired configurations.
+
+- __AWS CloudTrail__ is a service that enables governance, compliance, operational auditing, and risk auditing of your AWS account. With CloudTrail, you can log, continuously monitor, and retain account activity related to actions across your AWS infrastructure. CloudTrail provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting. In addition, you can use CloudTrail to detect unusual activity in your AWS accounts. These capabilities help simplify operational analysis and troubleshooting.
